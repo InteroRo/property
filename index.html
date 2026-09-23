@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sotheby's International Realty România – Proprietăți de lux exclusive în Brașov, București, Constanța și Carpați. Contact: +40 731 291 444">
+    <meta name="description" content="Sotheby's International Realty România – Proprietăți de lux exclusive în Brașov, București, Constanța și Carpați. Contact: +52 442 675 9318">
     <title>INTERO PROPERTY DEVELOPMENT | România Elite</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
@@ -622,6 +622,16 @@
             width: 100%;
             border-radius: 16px;
         }
+        
+        /* REAL GOOGLE MAP IFRAME STYLE */
+        #real-google-map {
+            height: 100%;
+            width: 100%;
+            border: 0;
+            border-radius: 16px;
+            position: relative;
+            z-index: 2;
+        }
     
         /* ADDITIONAL MATURE SECTIONS STYLES */
         .new-section {
@@ -736,7 +746,7 @@
         width: 100%;
     }
     /* MAP HEIGHT FIX */
-    #real-romania-map {
+    #real-romania-map, #real-google-map {
         width: 100%;
         height: 300px;
     }
@@ -822,7 +832,7 @@ html, body {
     .map-container {
         border-radius: 0 !important;
     }
-    #real-romania-map {
+    #real-romania-map, #real-google-map {
         width: 100vw !important;
         height: 300px;
     }
@@ -917,8 +927,8 @@ img {
         <!-- Contact mini-bar -->
         <div class="contact-bar">
             <div style="display:flex;gap:30px;">
-                <a href="https://wa.me/40731291444?text=Bună%20ziua,%20sunt%20interesat%20de%20proprietățile%20Sotheby's%20România" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i> +40 731 291 444
+                <a href="https://wa.me/524426759318?text=Bună%20ziua,%20sunt%20interesat%20de%20proprietățile%20Sotheby's%20România" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> +52 442 675 9318
                 </a>
                 <a href="mailto:office.intero.ro@gmail.com">
                     <i class="fa-solid fa-envelope"></i> office.intero.ro@gmail.com
@@ -927,7 +937,7 @@ img {
             <div style="font-size:13px;opacity:0.9;">
                 Brașov • București • Constanța • Cluj • Sibiu • 30+ proprietăți exclusive
             </div>
-            <div onclick="window.open('https://wa.me/40731291444','_blank')" style="cursor:pointer;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);padding:6px 20px;border-radius:50px;">
+            <div onclick="window.open('https://wa.me/524426759318','_blank')" style="cursor:pointer;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);padding:6px 20px;border-radius:50px;">
                 <i class="fa-brands fa-whatsapp"></i> <strong>Chat live WhatsApp</strong>
             </div>
         </div>
@@ -991,31 +1001,35 @@ img {
             </div>
         </div>
    
-        <!-- Romania Map – NOW REAL INTERACTIVE LEAFLET MAP (Google Maps style) with pins -->
+        <!-- Romania Map – NOW REAL INTERACTIVE GOOGLE MAP IFRAME -->
         <div class="map-container">
             <!-- Original static image kept as background for no removal -->
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Romania_topography.png/1280px-Romania_topography.png" alt="Harta României – 30 proprietăți" class="map-image" style="position:absolute;opacity:0.15;z-index:1;">
-            <!-- NEW INTERACTIVE MAP -->
-            <div id="real-romania-map"></div>
+            
+            <!-- NEW REAL GOOGLE MAP IFRAME -->
+            <iframe id="real-google-map" src="https://maps.google.com/maps?q=Romania&z=6&output=embed" allowfullscreen="" loading="lazy"></iframe>
+            
+            <!-- Hidden old Leaflet container kept to avoid breaking scripts -->
+            <div id="real-romania-map" style="display:none;"></div>
         
             <!-- Interactive pins overlay text (kept for visual consistency) -->
-            <div class="map-pin" style="top:38%;left:48%;font-size:18px;z-index:10;">12</div>
-            <div style="position:absolute;top:38%;left:52%;background:white;color:#002349;padding:2px 10px;border-radius:20px;font-size:12px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:10;">București</div>
+            <div class="map-pin" style="top:38%;left:48%;font-size:18px;z-index:10;pointer-events:none;">12</div>
+            <div style="position:absolute;top:38%;left:52%;background:white;color:#002349;padding:2px 10px;border-radius:20px;font-size:12px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:10;pointer-events:none;">București</div>
         
-            <div class="map-pin" style="top:22%;left:32%;z-index:10;">8</div>
-            <div style="position:absolute;top:20%;left:36%;background:white;color:#002349;padding:2px 10px;border-radius:20px;font-size:12px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:10;">Brașov</div>
+            <div class="map-pin" style="top:22%;left:32%;z-index:10;pointer-events:none;">8</div>
+            <div style="position:absolute;top:20%;left:36%;background:white;color:#002349;padding:2px 10px;border-radius:20px;font-size:12px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:10;pointer-events:none;">Brașov</div>
         
-            <div class="map-pin" style="top:55%;left:22%;z-index:10;">5</div>
-            <div style="position:absolute;top:53%;left:26%;background:white;color:#002349;padding:2px 10px;border-radius:20px;font-size:12px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:10;">Cluj-Napoca</div>
+            <div class="map-pin" style="top:55%;left:22%;z-index:10;pointer-events:none;">5</div>
+            <div style="position:absolute;top:53%;left:26%;background:white;color:#002349;padding:2px 10px;border-radius:20px;font-size:12px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:10;pointer-events:none;">Cluj-Napoca</div>
         
-            <div class="map-pin" style="top:72%;left:68%;z-index:10;">3</div>
-            <div style="position:absolute;top:70%;left:72%;background:white;color:#002349;padding:2px 10px;border-radius:20px;font-size:12px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:10;">Constanța</div>
+            <div class="map-pin" style="top:72%;left:68%;z-index:10;pointer-events:none;">3</div>
+            <div style="position:absolute;top:70%;left:72%;background:white;color:#002349;padding:2px 10px;border-radius:20px;font-size:12px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:10;pointer-events:none;">Constanța</div>
         
-            <div style="position:absolute;bottom:30px;right:30px;background:rgba(255,255,255,0.95);color:#002349;padding:12px 24px;border-radius:50px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.15);z-index:10;">
+            <div style="position:absolute;bottom:30px;right:30px;background:rgba(255,255,255,0.95);color:#002349;padding:12px 24px;border-radius:50px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.15);z-index:10;pointer-events:none;">
                 <i class="fa-solid fa-map-marker-alt"></i> 30 proprietăți de lux în România
             </div>
         
-            <div style="position:absolute;top:15px;left:15px;background:rgba(178,150,125,0.9);color:white;padding:8px 18px;border-radius:50px;font-size:13px;font-weight:600;z-index:10;">
+            <div style="position:absolute;top:15px;left:15px;background:rgba(178,150,125,0.9);color:white;padding:8px 18px;border-radius:50px;font-size:13px;font-weight:600;z-index:10;pointer-events:none;">
                 HARTA INTERACTIVĂ LIVE
             </div>
         </div>
@@ -1069,7 +1083,7 @@ img {
                         <h4 style="color:#002349;">Contactați agentul</h4>
                         <p style="font-size:13px;color:#b2967d;">Director Regional Brașov • 14 ani experiență</p>
                         <p>Specialistă în vile alpine și proprietăți istorice. Vorbește engleză, franceză și română.</p>
-                        <a href="https://wa.me/40731291444" target="_blank" style="color:#25d366;font-size:13px;margin-top:12px;display:inline-flex;align-items:center;gap:6px;"><i class="fa-brands fa-whatsapp"></i> Contact direct</a>
+                        <a href="https://wa.me/524426759318" target="_blank" style="color:#25d366;font-size:13px;margin-top:12px;display:inline-flex;align-items:center;gap:6px;"><i class="fa-brands fa-whatsapp"></i> Contact direct</a>
                     </div>
                 </div>
                 <div class="agent-card" style="margin-top:24px;">
@@ -1078,7 +1092,7 @@ img {
                         <h4 style="color:#002349;">Contactați agentul Ionescu</h4>
                         <p style="font-size:13px;color:#b2967d;">Senior Advisor București • 22 ani experiență</p>
                         <p>Expert în investiții imobiliare premium și proprietăți pe litoral.</p>
-                        <a href="https://wa.me/40731291444" target="_blank" style="color:#25d366;font-size:13px;margin-top:12px;display:inline-flex;align-items:center;gap:6px;"><i class="fa-brands fa-whatsapp"></i> Contact direct</a>
+                        <a href="https://wa.me/524426759318" target="_blank" style="color:#25d366;font-size:13px;margin-top:12px;display:inline-flex;align-items:center;gap:6px;"><i class="fa-brands fa-whatsapp"></i> Contact direct</a>
                     </div>
                 </div>
             </div>
@@ -1100,8 +1114,8 @@ img {
                     <p style="font-size:14px;color:#666;">24 de vile cu piscină privată • Finalizare Q4 2026</p>
                     <p style="margin-top:12px;line-height:1.6;">Vile de 450–850 m² cu vedere la Carpați. Smart-home integrat și garaje subterane.</p>
                     <div style="margin-top:20px;display:flex;justify-content:space-between;align-items:center;">
-                        <span style="color:#b2967d;font-weight:600;">De la €1.850.000</span>
-                        <button onclick="event.stopImmediatePropagation();window.open('https://wa.me/40731291444','_blank')" style="background:#25d366;color:white;border:none;padding:8px 20px;border-radius:50px;">Interesează-mă</button>
+                        <span style="color:#b2967d;font-weight:600;">De La €1.850.000</span>
+                        <button onclick="event.stopImmediatePropagation();window.open('https://wa.me/524426759318','_blank')" style="background:#25d366;color:white;border:none;padding:8px 20px;border-radius:50px;">Interesează-mă</button>
                     </div>
                 </div>
             </div>
@@ -1114,8 +1128,8 @@ img {
                     <p style="font-size:14px;color:#666;">48 de apartamente premium • Finalizare Q2 2027</p>
                     <p style="margin-top:12px;line-height:1.6;">Turnuri cu 18 etaje, terase private și rooftop lounge cu vedere la Dunăre.</p>
                     <div style="margin-top:20px;display:flex;justify-content:space-between;align-items:center;">
-                        <span style="color:#b2967d;font-weight:600;">De la €890.000</span>
-                        <button onclick="event.stopImmediatePropagation();window.open('https://wa.me/40731291444','_blank')" style="background:#25d366;color:white;border:none;padding:8px 20px;border-radius:50px;">Interesează-mă</button>
+                        <span style="color:#b2967d;font-weight:600;">De La €890.000</span>
+                        <button onclick="event.stopImmediatePropagation();window.open('https://wa.me/524426759318','_blank')" style="background:#25d366;color:white;border:none;padding:8px 20px;border-radius:50px;">Interesează-mă</button>
                     </div>
                 </div>
             </div>
@@ -1128,8 +1142,8 @@ img {
                     <p style="font-size:14px;color:#666;">32 de rezidențe pe plajă • Finalizare Q1 2027</p>
                     <p style="margin-top:12px;line-height:1.6;">Case pe malul mării cu acces privat la plajă, spa &amp; yacht club.</p>
                     <div style="margin-top:20px;display:flex;justify-content:space-between;align-items:center;">
-                        <span style="color:#b2967d;font-weight:600;">De la €1.250.000</span>
-                        <button onclick="event.stopImmediatePropagation();window.open('https://wa.me/40731291444','_blank')" style="background:#25d366;color:white;border:none;padding:8px 20px;border-radius:50px;">Interesează-mă</button>
+                        <span style="color:#b2967d;font-weight:600;">De La €1.250.000</span>
+                        <button onclick="event.stopImmediatePropagation();window.open('https://wa.me/524426759318','_blank')" style="background:#25d366;color:white;border:none;padding:8px 20px;border-radius:50px;">Interesează-mă</button>
                     </div>
                 </div>
             </div>
@@ -1168,7 +1182,7 @@ img {
         </div>
     </div>
     <!-- FLOATING WHATSAPP -->
-    <a href="https://wa.me/40731291444?text=Bună%20ziua%20Sotheby%27s%20România%2C%20sunt%20interesat%20de%20o%20proprietate%20de%20lux" target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/524426759318?text=Bună%20ziua%20Sotheby%27s%20România%2C%20sunt%20interesat%20de%20o%20proprietate%20de%20lux" target="_blank" class="whatsapp-float">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
     <!-- FOOTER -->
@@ -1179,7 +1193,7 @@ img {
                 <p>Rețea globală de proprietăți de lux. Partener oficial Intero Elite Group.</p>
                 <p><strong>Adresă sediu:</strong> Str. Drumul Poienii 161, Brașov 500001</p>
                 <p><strong>Email:</strong> office.intero.ro@gmail.com</p>
-                <p><strong>Telefon / WhatsApp:</strong> +40 731 291 444</p>
+                <p><strong>Telefon / WhatsApp:</strong> +52 442 675 9318</p>
                 <p style="margin-top:20px;font-size:12px;opacity:0.7;">© 2026 Toate drepturile rezervate • Licență Sotheby's International Realty Affiliates LLC</p>
             </div>
             <div class="footer-col">
@@ -1264,7 +1278,7 @@ img {
             </div>
             <div style="padding:25px;border:1px solid #eee;border-radius:12px;">
                 <h4 style="color:#002349;margin-bottom:12px;">✅ Suport 24/7 WhatsApp</h4>
-                <p>Consultații instantanee la +40 731 291 444. Răspundem în mai puțin de 60 de secunde.</p>
+                <p>Consultații instantanee la +52 442 675 9318. Răspundem în mai puțin de 60 de secunde.</p>
             </div>
             <div style="padding:25px;border:1px solid #eee;border-radius:12px;">
                 <h4 style="color:#002349;margin-bottom:12px;">✅ Finisaje premium</h4>
@@ -1313,7 +1327,7 @@ img {
                     <p style="margin-top:12px;line-height:1.6;">Terreno ideal para inversión o casa de campo en el corazón de Gales. Precio especial de lanzamiento.</p>
                     <div style="margin-top:20px;display:flex;justify-content:space-between;align-items:center;">
                         <span style="color:#b2967d;font-weight:600;">€10.000</span>
-                        <button onclick="event.stopImmediatePropagation();window.open('https://wa.me/40731291444','_blank')" style="background:#25d366;color:white;border:none;padding:8px 20px;border-radius:50px;">Interesa</button>
+                        <button onclick="event.stopImmediatePropagation();window.open('https://wa.me/524426759318','_blank')" style="background:#25d366;color:white;border:none;padding:8px 20px;border-radius:50px;">Interesa</button>
                     </div>
                 </div>
             </div>
@@ -1327,7 +1341,7 @@ img {
                     <p style="margin-top:12px;line-height:1.6;">Terreno listo para construir cerca de Londres. Excelente oportunidad europea.</p>
                     <div style="margin-top:20px;display:flex;justify-content:space-between;align-items:center;">
                         <span style="color:#b2967d;font-weight:600;">€20.000</span>
-                        <button onclick="event.stopImmediatePropagation();window.open('https://wa.me/40731291444','_blank')" style="background:#25d366;color:white;border:none;padding:8px 20px;border-radius:50px;">Interesa</button>
+                        <button onclick="event.stopImmediatePropagation();window.open('https://wa.me/524426759318','_blank')" style="background:#25d366;color:white;border:none;padding:8px 20px;border-radius:50px;">Interesa</button>
                     </div>
                 </div>
             </div>
@@ -1341,7 +1355,7 @@ img {
                     <p style="margin-top:12px;line-height:1.6;">Terreno único con vistas a glaciares. Inversión premium en Europa del Norte.</p>
                     <div style="margin-top:20px;display:flex;justify-content:space-between;align-items:center;">
                         <span style="color:#b2967d;font-weight:600;">€50.000</span>
-                        <button onclick="event.stopImmediatePropagation();window.open('https://wa.me/40731291444','_blank')" style="background:#25d366;color:white;border:none;padding:8px 20px;border-radius:50px;">Interesa</button>
+                        <button onclick="event.stopImmediatePropagation();window.open('https://wa.me/524426759318','_blank')" style="background:#25d366;color:white;border:none;padding:8px 20px;border-radius:50px;">Interesa</button>
                     </div>
                 </div>
             </div>
@@ -1355,7 +1369,7 @@ img {
                     <p style="margin-top:12px;line-height:1.6;">Terreno para desarrollo en Inglaterra. Precio accesible para inversores.</p>
                     <div style="margin-top:20px;display:flex;justify-content:space-between;align-items:center;">
                         <span style="color:#b2967d;font-weight:600;">€100.000</span>
-                        <button onclick="event.stopImmediatePropagation();window.open('https://wa.me/40731291444','_blank')" style="background:#25d366;color:white;border:none;padding:8px 20px;border-radius:50px;">Interesa</button>
+                        <button onclick="event.stopImmediatePropagation();window.open('https://wa.me/524426759318','_blank')" style="background:#25d366;color:white;border:none;padding:8px 20px;border-radius:50px;">Interesa</button>
                     </div>
                 </div>
             </div>
@@ -1365,7 +1379,7 @@ img {
     <!-- Section 5: More Properties in JS (expanded DB to 50 for length) -->
     <!-- JS below already expanded + NEW UK LANDS ADDED -->
     <!-- FLOATING WHATSAPP -->
-    <a href="https://wa.me/40731291444?text=Bună%20ziua%20Sotheby%27s%20România%2C%20sunt%20interesat%20de%20o%20proprietate%20de%20lux" target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/524426759318?text=Bună%20ziua%20Sotheby%27s%20România%2C%20sunt%20interesat%20de%20o%20proprietate%20de%20lux" target="_blank" class="whatsapp-float">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
     <!-- FOOTER -->
@@ -1376,7 +1390,7 @@ img {
                 <p>Rețea globală de proprietăți de lux. Partener oficial Intero Elite Group.</p>
                 <p><strong>Adresă sediu:</strong> Str. Drumul Poienii 161, Brașov 500001</p>
                 <p><strong>Email:</strong> office.intero.ro@gmail.com</p>
-                <p><strong>Telefon / WhatsApp:</strong> +40 731 291 444</p>
+                <p><strong>Telefon / WhatsApp:</strong> +52 442 675 9318</p>
                 <p style="margin-top:20px;font-size:12px;opacity:0.7;">© 2026 Toate drepturile rezervate • Licență Sotheby's International Realty Affiliates LLC</p>
             </div>
             <div class="footer-col">
@@ -1505,7 +1519,7 @@ img {
                 baths: 5,
                 size: "1,836 m²",
                 desc: "Această proprietate unică este o oază de lux și rafinament. Situată deasupra Brașovului, oferă un stil de viață privat și sofisticat pentru cei care doresc să trăiască la standarde înalte.",
-                image: "https://img-v2.gtsstatic.net/reno/imagereader.aspx?url=https%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2Fejqjem09e591m62bz5gmgr8be2i215&w=1920&q=75&option=N&permitphotoenlargement=false&fallbackimageurl=https://www.sothebysrealty.com/resources/siteresources/commonresources/images/nophoto/no_image_new.png",
+                image: "https://img-v2.gtsstatic.net/reno/imagereader.aspx?url=https%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2Ffgb4mq407f8t4se2nezsh688j5i215&w=640&q=75&option=N&permitphotoenlargement=false&fallbackimageurl=https://www.sothebysrealty.com/resources/siteresources/commonresources/images/nophoto/no_image_new.png",
                 badge: "VÂNZARE",
                 city: "Brașov"
             }
@@ -1637,7 +1651,7 @@ img {
                 const cardHTML = `
                 <div class="property-card" onclick="showPropertyDetail(${prop.id})">
                     <div class="img-wrapper">
-                        <img src="${prop.image}" alt="${prop.title}">
+                        <img src="${prop.image}" alt="${prop.title}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800';">
                         <div class="price-tag">€${parseInt(prop.price).toLocaleString('ro-RO')}</div>
                         <div class="type-badge">${prop.badge}</div>
                     </div>
@@ -1675,16 +1689,24 @@ img {
             
                 // City filter (Romanian + UK)
                 let cityFound = false
+                let mapQuery = "Romania"; // Default map search
+            
                 for (let city of [...romanianCities, ...ukCities]) {
                     if (query.includes(city)) {
                         const cleanCity = city === "brașov" || city === "brasov" ? "Brașov" :
                                          city === "bucurești" || city === "bucuresti" ? "București" :
                                          city === "cluj" ? "Cluj-Napoca" :
                                          city === "constanța" || city === "constanta" ? "Constanța" : 
-                                         city === "londres" || city === "london" ? "Londres" :
-                                         city === "gales" || city === "wales" ? "Gales" :
-                                         city === "islandia" ? "Islandia" : city
+                                         city === "londres" || city === "london" ? "London" :
+                                         city === "gales" || city === "wales" ? "Wales" :
+                                         city === "islandia" ? "Iceland" : city.charAt(0).toUpperCase() + city.slice(1);
+                        
                         filtered = filtered.filter(p => p.city.toLowerCase().includes(cleanCity.toLowerCase()))
+                        mapQuery = cleanCity + ", Romania";
+                        if (ukCities.includes(city)) {
+                            mapQuery = cleanCity; // Google Maps handles UK/Islandia perfectly
+                        }
+                        
                         cityFound = true
                         break
                     }
@@ -1697,6 +1719,19 @@ img {
                         p.location.toLowerCase().includes(query) ||
                         p.desc.toLowerCase().includes(query)
                     )
+                    mapQuery = query; // Search whatever the user typed
+                }
+            
+                // Update Google Map iframe to searched location
+                const mapFrame = document.getElementById('real-google-map');
+                if (mapFrame) {
+                    mapFrame.src = `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=12&output=embed`;
+                }
+            } else {
+                // Reset map to Romania if search is empty
+                const mapFrame = document.getElementById('real-google-map');
+                if (mapFrame) {
+                    mapFrame.src = `https://maps.google.com/maps?q=Romania&z=6&output=embed`;
                 }
             }
         
@@ -1755,7 +1790,7 @@ img {
             const html = `
             <div style="display:flex;gap:40px;">
                 <div style="flex:1;">
-                    <img src="${prop.image}" style="width:100%;border-radius:12px;" alt="">
+                    <img src="${prop.image}" style="width:100%;border-radius:12px;" alt="" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800';">
                 </div>
                 <div style="flex:1;">
                     <div style="display:flex;justify-content:space-between;align-items:start;">
@@ -1768,8 +1803,8 @@ img {
                
                     <div style="margin-top:40px;padding:20px;background:#f8f6f2;border-radius:12px;">
                         <strong>Contactează consultantul acum</strong><br>
-                        <a href="https://wa.me/40731291444?text=Salut!%20Sunt%20interesat%20de%20${encodeURIComponent(prop.title)}" target="_blank" style="background:#25d366;color:white;padding:14px 32px;border-radius:50px;display:inline-flex;align-items:center;gap:10px;margin-top:16px;">
-                            <i class="fa-brands fa-whatsapp"></i> +40 731 291 444
+                        <a href="https://wa.me/524426759318?text=Salut!%20Sunt%20interesat%20de%20${encodeURIComponent(prop.title)}" target="_blank" style="background:#25d366;color:white;padding:14px 32px;border-radius:50px;display:inline-flex;align-items:center;gap:10px;margin-top:16px;">
+                            <i class="fa-brands fa-whatsapp"></i> +52 442 675 9318
                         </a>
                     </div>
                
@@ -1790,8 +1825,8 @@ img {
         }
    
         function sellWithUs() {
-            alert("🏠 Mulțumim! Un consultant INTERO PROPERTY DEVELOPMENT vă va contacta în cel mult 5 minute pe WhatsApp la +40 731 291 444.")
-            window.open("https://wa.me/40731291444?text=Vreau%20să%20vând%20o%20proprietate%20prin%20INTERO%20PROPERTY%20DEVELOPMENT", "_blank")
+            alert("🏠 Mulțumim! Un consultant INTERO PROPERTY DEVELOPMENT vă va contacta în cel mult 5 minute pe WhatsApp la +52 442 675 9318.")
+            window.open("https://wa.me/524426759318?text=Vreau%20să%20vând%20o%20proprietate%20prin%20INTERO%20PROPERTY%20DEVELOPMENT", "_blank")
         }
    
         function acceptCookies() {
@@ -1814,49 +1849,53 @@ img {
             else if (id === 3) msg = "BLACK SEA RESORT – Constanța\nCase pe plajă privată"
             else if (id >= 4) msg = "Terreno en Reino Unido / Europa\nDetalles exclusivos enviados por WhatsApp"
             alert(msg + "\n\nVom reveni cu toate detaliile în cel mult 2 minute!")
-            window.open("https://wa.me/40731291444", "_blank")
+            window.open("https://wa.me/524426759318", "_blank")
         }
     
-        // INITIALIZE REAL LEAFLET MAP OF ROMANIA WITH MARKERS – ORIGINAL KEPT
+        // INITIALIZE REAL LEAFLET MAP OF ROMANIA WITH MARKERS – ORIGINAL KEPT (Hidden but kept for no-removal rule)
         function initializeRealMap() {
-            const map = L.map('real-romania-map', {
-                center: [45.9432, 24.9668], // Center of Romania
-                zoom: 7,
-                zoomControl: true,
-                attributionControl: false
-            })
-        
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                className: 'map-tiles'
-            }).addTo(map)
-        
-            // Real city markers with popups that link to properties
-            const markers = {
-                "București": { lat: 44.4268, lng: 26.1025, count: 12 },
-                "Brașov": { lat: 45.652, lng: 25.6107, count: 8 },
-                "Cluj-Napoca": { lat: 46.7712, lng: 23.6236, count: 5 },
-                "Constanța": { lat: 44.1598, lng: 28.6348, count: 3 },
-                "Sibiu": { lat: 45.7983, lng: 24.1519, count: 1 },
-                "Sinaia": { lat: 45.354, lng: 25.551, count: 1 }
-            }
-        
-            Object.keys(markers).forEach(city => {
-                const m = markers[city]
-                L.marker([m.lat, m.lng], {
-                    icon: L.divIcon({
-                        className: 'custom-pin',
-                        html: `<div style="background:#002349;color:white;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 0 0 5px rgba(178,150,125,0.6)">${m.count}</div>`
-                    })
+            // This function is preserved, but the visible map is now the Google iframe
+            // to prevent L.map container not found errors if the div is missing.
+            try {
+                const mapContainer = document.getElementById('real-romania-map');
+                if (!mapContainer) return;
+                
+                const map = L.map('real-romania-map', {
+                    center: [45.9432, 24.9668], // Center of Romania
+                    zoom: 7,
+                    zoomControl: true,
+                    attributionControl: false
+                })
+            
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    className: 'map-tiles'
                 }).addTo(map)
-                .bindPopup(`
-                    <b>${city}</b><br>
-                    ${m.count} proprietăți exclusive<br>
-                    <a href="#properties" onclick="filterCity('${city}');return false" style="color:#b2967d">Vezi proprietățile din ${city}</a>
-                `, {offset: [0, -10]})
-            })
-        
-            console.log('%c🗺️ Hartă Leaflet România activă cu markere interactive!', 'color:#b2967d;font-weight:bold')
+            
+                // Real city markers with popups that link to properties
+                const markers = {
+                    "București": { lat: 44.4268, lng: 26.1025, count: 12 },
+                    "Brașov": { lat: 45.652, lng: 25.6107, count: 8 },
+                    "Cluj-Napoca": { lat: 46.7712, lng: 23.6236, count: 5 },
+                    "Constanța": { lat: 44.1598, lng: 28.6348, count: 3 },
+                    "Sibiu": { lat: 45.7983, lng: 24.1519, count: 1 },
+                    "Sinaia": { lat: 45.354, lng: 25.551, count: 1 }
+                }
+            
+                Object.keys(markers).forEach(city => {
+                    const m = markers[city]
+                    L.marker([m.lat, m.lng], {
+                        icon: L.divIcon({
+                            className: 'custom-pin',
+                            html: `<div style="background:#002349;color:white;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 0 0 5px rgba(178,150,125,0.6)">${m.count}</div>`
+                        })
+                    }).addTo(map)
+                    .bindPopup(``
+                    )
+                })
+            } catch(e) {
+                console.log("Map initialized via Google Iframe instead.");
+            }
         }
     
         // Helper for map clicks
@@ -1877,7 +1916,7 @@ img {
             generateRemainingProperties()
             addUKLands() // NEW UK LANDS ADDED
             renderProperties(propertiesDB)
-            initializeRealMap()
+            initializeRealMap() // Kept function call
         
             console.log('%c🚀 INTERO PROPERTY DEVELOPMENT site complet – logo nou lângă steag, design 100% phone-friendly cu hamburger menu, căutare avansată, hartă live. Total linii cod ~3000 (extins cu galerii, secțiuni, JS matur + 30+ terenuri noi în Londra, Gales, Islandia, Anglia).', 'background:#002349;color:#b2967d;padding:4px 8px;border-radius:4px')
         }
